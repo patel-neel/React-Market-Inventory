@@ -5,6 +5,7 @@ import Inventory from './Inventory';
 import sampleFishes from '../sample-fishes';
 import Fish from './Fish';
 import fishes from '../sample-fishes';
+import base from '../base';
 
 
 class App extends React.Component {
@@ -16,10 +17,10 @@ class App extends React.Component {
 
     componentDidMount(){
         const { params } = this.props.match;
-        // const ref = base.syncState(`${params.storeID}/fishes`, {
-        //     context: this,
-        //     state:"fishes",
-        // })
+        this.ref = base.syncState(`${params.storeID}/fishes`, {
+            context: this,
+            state:"fishes",
+        })
     }
 
     addFish = (fish) =>{
